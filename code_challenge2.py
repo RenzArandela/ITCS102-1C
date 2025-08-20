@@ -1,38 +1,48 @@
-amount = eval(input("\nEnter the amount that you want to deposit-->"))
-print("Here's the breakdown of your deposit-->")
+amount = eval(input("Enter any amount to deposit --> "))
 
-oneK = amount // 1000
+print("Here is a breakdown of your deposited amount using the PH denominations")
+
+# 1000
+isanglibo = amount // 1000
 amount = amount % 1000
-print(onethou,"\t- 1000")
+print(isanglibo, "- 1000")
 
-fiveH = amount // 500 
+# 500
+limangdaan = amount // 500
 amount = amount % 500
-print(fivehund,"\t- 500")
+print(limangdaan, "- 500")
 
-twoH = amount // 200
+# 200
+dalawangdaan = amount // 200
 amount = amount % 200
-print(twohund,"\t- 200")
+print(dalawangdaan, "- 200")
 
-oneH = amount // 100
+# 100
+isangdaan = amount // 100
 amount = amount % 100
-print(onehund,"\t- 100")
+print(isangdaan, "- 100")
 
-fifty = amount // 50
+# 50
+limampu = amount // 50
 amount = amount % 50
-print(fifty,"\t- 50")
+print(limampu, "- 50")
 
-twenty = amount // 20
+# 20
+dalawampu = amount // 20
 amount = amount % 20
-print(twenty,"\t- 20")
+print(dalawampu, "- 20")
 
-ten = amount // 10
+# 10
+sampu = amount // 10
 amount = amount % 10
-print(ten,"\t- 10")
+print(sampu, "- 10")
 
-five = amount // 5
+# 5
+lima = amount // 5
 amount = amount % 5
-print(five,"\t- 5")
+print(lima, "- 5")
 
-one = amount // 1
+# 1
+isa = amount // 1
 amount = amount % 1
-print(one,"\t- 1")
+print(isa, "- 1")
