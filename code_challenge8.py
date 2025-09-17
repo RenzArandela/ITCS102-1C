@@ -1,6 +1,6 @@
 import time
 
-print("⏳ COUNTDOWN TIMER SIMULATOR")
+print("COUNTDOWN TIMER SIMULATOR")
 
 start = eval(input("Enter the starting number for countdown: "))
 
