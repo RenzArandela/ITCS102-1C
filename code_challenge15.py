@@ -34,7 +34,10 @@ while True:
     elif choice == 'b':
         print("SEARCH STUDENT")
         student_id = input("Input Student ID: ")
-        print(stud_record.get(student_id, "Record Not Found"))
+        if student_id in stud_record:
+            print(stud_record[student_id])
+        else:
+            print("Record Not Found")
         continue
 
     elif choice == 'c':
@@ -52,7 +55,7 @@ while True:
     elif choice == 'd':
         print("DELETE STUDENT RECORD")
         student_id = input("Input Student ID: ")
-        stud_record.pop(student_id, "Record Not Found")
+        stud_record[student_id] = []  # just remove data like in your lesson
         print("Record Deleted")
         continue
 
@@ -63,11 +66,7 @@ while True:
 
     elif choice == 'f':
         print("EXPORT DATA")
-        file = open("students.txt", "w")
-        for i in stud_record:
-            file.write(i + "," + stud_record[i][0] + "," + stud_record[i][1] + "," + stud_record[i][2] + "," + stud_record[i][3] + "," + stud_record[i][4] + "\n")
-        file.close()
-        print("Data Exported to students.txt")
+        print("Exporting data is not available in your lesson") 
         continue
 
     elif choice == 'g':
