@@ -55,7 +55,7 @@ while True:
     elif choice == 'd':
         print("DELETE STUDENT RECORD")
         student_id = input("Input Student ID: ")
-        stud_record[student_id] = []  # just remove data like in your lesson
+        stud_record[student_id] = []  
         print("Record Deleted")
         continue
 
