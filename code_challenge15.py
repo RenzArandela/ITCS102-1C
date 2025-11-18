@@ -4,6 +4,8 @@ os.system('cls')
 print('DLL Student Information system')
 print('===================================')
 
+stud_record = {}
+
 while True:
     print("Select from the following options")
     print('A - Adding Student Record')
@@ -15,39 +17,62 @@ while True:
     print('G - Exit System')
 
     choice = input("Input your choice --> ").lower().strip()
-     
-    stud_record = {}
 
     if choice == 'a':
         print("ADD STUDENT RECORD")
-
-        student_id = input("Input Student ID number")
-        first_name = input("input student First Name").upper()
-        last_name = input("Input Student last name").upper()
-        course = input("Input Student Course").upper()
-        section = input("Input Student Section").upper()  
-        email = input("Input Student email").upper()
-
+        student_id = input("Input Student ID number: ")
+        first_name = input("Input Student First Name: ").upper()
+        last_name = input("Input Student Last Name: ").upper()
+        course = input("Input Student Course: ").upper()
+        section = input("Input Student Section: ").upper()
+        email = input("Input Student Email: ").upper()
         stud_record[student_id] = [first_name, last_name, course, section, email]
-        print("Data saved Succesfully")
+        print("Data saved Successfully")
         os.system('cls')
         continue
+
     elif choice == 'b':
-        pass
+        print("SEARCH STUDENT")
+        student_id = input("Input Student ID: ")
+        print(stud_record.get(student_id, "Record Not Found"))
         continue
+
     elif choice == 'c':
-        pass
+        print("EDIT STUDENT RECORD")
+        student_id = input("Input Student ID: ")
+        first_name = input("Input Student First Name: ").upper()
+        last_name = input("Input Student Last Name: ").upper()
+        course = input("Input Student Course: ").upper()
+        section = input("Input Student Section: ").upper()
+        email = input("Input Student Email: ").upper()
+        stud_record[student_id] = [first_name, last_name, course, section, email]
+        print("Record Updated")
         continue
+
     elif choice == 'd':
-        pass
+        print("DELETE STUDENT RECORD")
+        student_id = input("Input Student ID: ")
+        stud_record.pop(student_id, "Record Not Found")
+        print("Record Deleted")
         continue
+
     elif choice == 'e':
-        pass
+        print("PRINT ALL RECORDS")
+        print(stud_record)
         continue
+
     elif choice == 'f':
-        pass
+        print("EXPORT DATA")
+        file = open("students.txt", "w")
+        for i in stud_record:
+            file.write(i + "," + stud_record[i][0] + "," + stud_record[i][1] + "," + stud_record[i][2] + "," + stud_record[i][3] + "," + stud_record[i][4] + "\n")
+        file.close()
+        print("Data Exported to students.txt")
         continue
+
     elif choice == 'g':
         print("System Exit")
+        break
+
     else:
-        print("Ub")
+        print("Invalid Choice")
