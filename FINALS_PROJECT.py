@@ -240,10 +240,10 @@ def list_menu():
 while True:
     os.system("cls")
     print("==========================================")
-    print(" Welcome to My Python Beginner-Friendly Functions! ")
+    print("Welcome to My Python Beginner-Friendly Functions! ")
     print("Here, you'll learn some cool Python functions step by step.")
     print("Just play around, try the examples, and have fun coding :)")
-    print("==========================================\n")
+    print("==========================================")
     print("A - PRINT FUNCTION")
     print("B - INPUT FUNCTION") 
     print("C - EVAL FUNCTION")
