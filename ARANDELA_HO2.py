@@ -22,7 +22,8 @@ course.pack(pady=(10,0))
 birthday = renz.Label(window,text="Birthday: June 17, 2007",font=("Arial",20),bg="lightblue")
 birthday.pack(pady=(10,0))
 
-motto = renz.Label(window,text="Personal Motto: Code with logic, create with passion.",font=("Arial",20,"italic"),bg="lightblue",wraplength=500,justify="center")
+motto = renz.Label(window,text="Personal Motto: Stay real, stay kind, and enjoy the little things in life.",font=("Arial",20,"italic"),bg="lightblue",wraplength=500,justify="center")
+
 motto.pack(pady=(20,0))
 
 window.mainloop()
