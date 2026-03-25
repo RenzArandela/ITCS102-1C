@@ -1,0 +1,55 @@
+from tkinter import *
+
+app = Tk()
+app.title("Simple Account System")
+app.geometry("300x400")
+
+app.configure(bg="green")
+
+stored_username = ""
+stored_password = ""
+
+
+Label(app, text="REGISTER").pack()
+
+Label(app, text="Username").pack()
+reg_user = Entry(app)
+reg_user.pack()
+
+Label(app, text="Password").pack()
+reg_pass = Entry(app)
+reg_pass.pack()
+
+
+def register():
+    global stored_username, stored_password
+    stored_username = reg_user.get()
+    stored_password = reg_pass.get()
+
+
+Button(app, text="Register", command=register).pack()
+
+
+Label(app, text="LOGIN").pack()
+
+Label(app, text="Username").pack()
+log_user = Entry(app)
+log_user.pack()
+
+Label(app, text="Password").pack()
+log_pass = Entry(app)
+log_pass.pack()
+
+
+def login():
+    if log_user.get() == stored_username and log_pass.get() == stored_password:
+        new_window = Toplevel(app)
+        new_window.geometry("400x300")
+        Label(new_window, text="WELCOME!" \
+        "HELLOOO", font=("Arial", 24)).pack()
+
+Button(app, text="Log In", command=login).pack()
+
+
+app.mainloop()
+
