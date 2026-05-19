@@ -1,45 +1,39 @@
 import tkinter as tk
-from tkinter import ttk
+import openpyxl as xl
+
+wb = xl.Workbook()
+ws = wb.active
 
 window = tk.Tk()
+window.title("Age Calculator")
 
-# ===== FRAME =====
+# FRAME
 frame = tk.Frame(window, bg="lightgreen")
-frame.grid(padx=10, pady=10)
+frame.pack(padx=10, pady=10)
 
-# ===== ENTRIES =====
-fname = tk.Entry(frame); fname.grid(row=0, column=0)
-mname = tk.Entry(frame); mname.grid(row=0, column=1)
-lname = tk.Entry(frame); lname.grid(row=0, column=2)
-birth = tk.Entry(frame); birth.grid(row=1, column=0)
+# NAME ENTRY
+tk.Label(frame, text="Name").grid(row=0, column=0)
+name_entry = tk.Entry(frame)
+name_entry.grid(row=0, column=1)
 
-# ===== LABELS =====
-tk.Label(frame, text="First").grid(row=2, column=0)
-tk.Label(frame, text="Middle").grid(row=2, column=1)
-tk.Label(frame, text="Last").grid(row=2, column=2)
-tk.Label(frame, text="Birth Year").grid(row=3, column=0)
+# BIRTH YEAR ENTRY
+tk.Label(frame, text="Birth Year").grid(row=1, column=0)
+birth_entry = tk.Entry(frame)
+birth_entry.grid(row=1, column=1)
 
-# ===== FUNCTIONS (PLACEHOLDER) =====
-def saving():
-    pass
+# SAVE FUNCTION
+def save():
+    name = name_entry.get()
+    birth = int(birth_entry.get())
 
-def update():
-    pass
+    age = 2026 - birth
 
-def delete():
-    pass
+    ws.append([name, birth, age])
+    wb.save("output.xlsx")
 
-# ===== BUTTONS =====
-tk.Button(window, text="Submit", command=saving).grid(row=4, column=0)
-tk.Button(window, text="Update", command=update).grid(row=4, column=1)
-tk.Button(window, text="Delete", command=delete).grid(row=4, column=2)
+    print("Saved!")
 
-# ===== TABLE =====
-table = ttk.Treeview(window, columns=("ID","Last","First","Middle","Birth","Age"), show="headings")
-
-for c in ("ID","Last","First","Middle","Birth","Age"):
-    table.heading(c, text=c)
-
-table.grid(row=5, column=0, columnspan=3)
+# BUTTON
+tk.Button(frame, text="Submit", command=save).grid(row=2, column=0, columnspan=2)
 
 window.mainloop()
