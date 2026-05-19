@@ -1,55 +1,45 @@
-from tkinter import *
+import tkinter as tk
+from tkinter import ttk
 
-app = Tk()
-app.title("Simple Account System")
-app.geometry("300x400")
+window = tk.Tk()
 
-app.configure(bg="green")
+# ===== FRAME =====
+frame = tk.Frame(window, bg="lightgreen")
+frame.grid(padx=10, pady=10)
 
-stored_username = ""
-stored_password = ""
+# ===== ENTRIES =====
+fname = tk.Entry(frame); fname.grid(row=0, column=0)
+mname = tk.Entry(frame); mname.grid(row=0, column=1)
+lname = tk.Entry(frame); lname.grid(row=0, column=2)
+birth = tk.Entry(frame); birth.grid(row=1, column=0)
 
+# ===== LABELS =====
+tk.Label(frame, text="First").grid(row=2, column=0)
+tk.Label(frame, text="Middle").grid(row=2, column=1)
+tk.Label(frame, text="Last").grid(row=2, column=2)
+tk.Label(frame, text="Birth Year").grid(row=3, column=0)
 
-Label(app, text="REGISTER").pack()
+# ===== FUNCTIONS (PLACEHOLDER) =====
+def saving():
+    pass
 
-Label(app, text="Username").pack()
-reg_user = Entry(app)
-reg_user.pack()
+def update():
+    pass
 
-Label(app, text="Password").pack()
-reg_pass = Entry(app)
-reg_pass.pack()
+def delete():
+    pass
 
+# ===== BUTTONS =====
+tk.Button(window, text="Submit", command=saving).grid(row=4, column=0)
+tk.Button(window, text="Update", command=update).grid(row=4, column=1)
+tk.Button(window, text="Delete", command=delete).grid(row=4, column=2)
 
-def register():
-    global stored_username, stored_password
-    stored_username = reg_user.get()
-    stored_password = reg_pass.get()
+# ===== TABLE =====
+table = ttk.Treeview(window, columns=("ID","Last","First","Middle","Birth","Age"), show="headings")
 
+for c in ("ID","Last","First","Middle","Birth","Age"):
+    table.heading(c, text=c)
 
-Button(app, text="Register", command=register).pack()
+table.grid(row=5, column=0, columnspan=3)
 
-
-Label(app, text="LOGIN").pack()
-
-Label(app, text="Username").pack()
-log_user = Entry(app)
-log_user.pack()
-
-Label(app, text="Password").pack()
-log_pass = Entry(app)
-log_pass.pack()
-
-
-def login():
-    if log_user.get() == stored_username and log_pass.get() == stored_password:
-        new_window = Toplevel(app)
-        new_window.geometry("400x300")
-        Label(new_window, text="WELCOME!" \
-        "HELLOOO", font=("Arial", 24)).pack()
-
-Button(app, text="Log In", command=login).pack()
-
-
-app.mainloop()
-
+window.mainloop()
